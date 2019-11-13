@@ -1,15 +1,31 @@
 import React, {Component} from 'react';
-import Spinner from "../spinner";
+import {Switch, Route, Link} from 'react-router-dom';
+import {HomePage, CartPage} from "../pages";
+import ShopHeader from '../shop-header';
 
-export default class App extends Component {
+class App extends Component {
+    render() {
+        return (
+            <main role="main" className="container">
+                <ShopHeader numItems={5} total={210}/>
+                <div>
+                    <Link to="/" className="mr-2">Home</Link>
+                    <Link to="/cart">Cart</Link>
+                </div>
+                <Switch>
+                    <Route
+                        path="/"
+                        component={HomePage}
+                        exact />
 
-    render(){
-        return(
-            <div>
-                <div>hello</div>
-                <Spinner/>
-            </div>
+                    <Route
+                        path="/cart"
+                        component={CartPage}
+                    />
+                </Switch>
+            </main>
         );
     }
 }
 
+export default App;
