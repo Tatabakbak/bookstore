@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {HomePage, CartPage} from "../pages";
 import ShopHeader from '../shop-header';
 
@@ -8,10 +8,6 @@ class App extends Component {
         return (
             <main role="main" className="container">
                 <ShopHeader numItems={5} total={210}/>
-                <div>
-                    <Link to="/" className="mr-2">Home</Link>
-                    <Link to="/cart">Cart</Link>
-                </div>
                 <Switch>
                     <Route
                         path="/"
